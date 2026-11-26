@@ -67,7 +67,7 @@ public class Runner {
                 for (Logger log : loggers) {
                     log.showEndRobot(robot);
                 }
-                output.append("\n").append(robot.toString());
+                output.append(robot.toString()).append(System.lineSeparator());
             }
 
             return output.toString();

@@ -11,17 +11,17 @@ Tests can be run separately with:
 
 `mvn test`
 
-To run a case, we can invoke the `jar` file created above using one of the test data files included (or create a new one):
+To run a case, we can invoke the `jar` file created above using any of the test data files included (or create a new one):
 
-`java -classpath ./target/martianrobots-1.0-SNAPSHOT.jar com.jacintomoran.martianrobots.Main ./testData/sample1.txt`
+`java -classpath ./target/martianrobots-1.0-SNAPSHOT.jar com.jacintomoran.martianrobots.Main ./src/test/resources/sample0.txt`
 
 or use stdin:
 
-`cat testData/sample0.txt | java -classpath target/martianrobots-1.0-SNAPSHOT.jar com.jacintomoran.martianrobots.Main`
+`cat src/test/resources/sample0.txt | java -classpath target/martianrobots-1.0-SNAPSHOT.jar com.jacintomoran.martianrobots.Main`
 
 or in a Windows box:
 
-` java -classpath .\target\martianrobots-1.0-SNAPSHOT.jar com.jacintomoran.martianrobots.Main .\testData\sample1.txt`
+`java -classpath .\target\martianrobots-1.0-SNAPSHOT.jar com.jacintomoran.martianrobots.Main .\src\test\resources\sample0.txt`
 
 This displays the resulting output in the format described in the document.
 
@@ -48,6 +48,13 @@ All this logic will normally be a good thing to log, that is why the`Robot` obje
 
 ## Logging
 Loggers are added to a set as the `Logger` interface, thus being possible to add different types of loggers, and more than one at a time.
-This is coded that way since I also created (vibe-coded, mostly) a `GuiLogger`, showing robots graphically on a UI window, which is not included in this release to avoid further complexity.
 
 This structure also allows for adding file-based loggers, or others sending log messages to external services.
+
+## Further options not considered
+I would have liked to take another look at tests, to find if they can be made more thorough. A coverage calculation would have been good too, since there are surely uncovered areas in `Runner` and `Main`.
+
+Speaking of loggers, my main reason for coding a `Set` of abstract loggers was the creation of a `GUILogger` (mostly vibe coded), which opens a UI (Swing) window and shows the robots moving across the grid.
+Movements are shown, lost robots are marked as such, and scents are also marked so that ignored movements are also displayed.
+
+This `GUILogger` is not included in this release to avoid further complexity. Please let me know if you are interested.
