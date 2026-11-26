@@ -49,7 +49,7 @@ All this logic will normally be a good thing to log, that is why the`Robot` obje
 ## Logging
 Loggers are added to a set as the `Logger` interface, thus being possible to add different types of loggers, and more than one at a time.
 
-This structure also allows for adding file-based loggers, or others sending log messages to external services.
+This structure also allows for adding file-based loggers, or others sending log messages to log collectors, telemetry systems and others.
 
 ## Further options not considered
 I would have liked to take another look at tests, to find if they can be made more thorough. A coverage calculation would have been good too, since there are surely uncovered areas in `Runner` and `Main`.
